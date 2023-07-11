@@ -18,6 +18,7 @@ class FileHandler:
     def find_base_path(cls):
         if cls.base_path:
             return cls.base_path
+        #hi
         # TODO: find first dir's path with .wit in it
         found = False
         # TODO: handle not wit repo
