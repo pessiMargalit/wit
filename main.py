@@ -1,10 +1,15 @@
 import sys
+import wit
 
 
 class WitInterface:
     @staticmethod
     def handle_commands(command, args):
-        pass
+        match command:
+            case "init":
+                wit.Wit.init()
+            case "add":
+                wit.Wit.add(args)
 
 
 if __name__ == "__main__":

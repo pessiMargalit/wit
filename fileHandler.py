@@ -9,7 +9,10 @@ class FileHandler:
 
     @staticmethod
     def create_dir(path):
-        pass
+        try:
+            os.makedirs(path)
+        except:
+            raise Exception("Failed to create directory..")
 
     @classmethod
     def find_base_path(cls):
