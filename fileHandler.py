@@ -1,5 +1,6 @@
 import sys
 import os
+import shutil
 
 
 class FileHandler:
@@ -28,4 +29,8 @@ class FileHandler:
 
     @classmethod
     def copy_item(cls, origin, target):
-        pass
+        if os.path.isfile(origin):
+            shutil.copy(origin, target)
+        elif os.path.isdir(origin):
+            shutil.copytree(origin, target)
+
