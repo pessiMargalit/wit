@@ -10,6 +10,8 @@ class WitInterface:
                 wit.Wit.init()
             case "add":
                 wit.Wit.add(args)
+            case "commit":
+                wit.Wit.commit(args)
 
 
 if __name__ == "__main__":

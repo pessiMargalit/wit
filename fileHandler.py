@@ -1,7 +1,7 @@
 import sys
 import os
 import shutil
-
+import datetime
 
 class FileHandler:
     base_path = None
@@ -12,7 +12,7 @@ class FileHandler:
         try:
             os.makedirs(path)
         except:
-            raise Exception("Failed to create directory..")
+            raise Exception("Failed to create a directory..")
 
     @classmethod
     def find_base_path(cls):
@@ -25,7 +25,7 @@ class FileHandler:
                     return cls.base_path
 
         # TODO: handle not wit repo
-        raise Exception("Not a wit repository")
+        # raise Exception("Not a wit repository")
 
     @classmethod
     def validate_path(cls, path):
@@ -39,5 +39,11 @@ class FileHandler:
         if os.path.isfile(origin):
             shutil.copy(origin, target)
         elif os.path.isdir(origin):
-            shutil.copytree(origin, target)
+            shutil.copytree(origin, os.path.join(target, origin.split("\\")[-1]))
 
+    @staticmethod
+    def write_commit_metadata_to_file(file_path, message):
+        with open(file_path, "w") as commit_id_file:
+            commit_id_file.write("parent=None\n")
+            commit_id_file.write("date={}\n".format(datetime.datetime.now().strftime("%a %b %d %H:%M:%S %Y %z")))
+            commit_id_file.write("message={}\n".format(message))
