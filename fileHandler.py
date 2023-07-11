@@ -5,7 +5,7 @@ import shutil
 
 class FileHandler:
     base_path = None
-    working_directory = None
+    working_directory = os.getcwd()
 
     @staticmethod
     def create_dir(path):
@@ -18,11 +18,14 @@ class FileHandler:
     def find_base_path(cls):
         if cls.base_path:
             return cls.base_path
-        #hi
-        # TODO: find first dir's path with .wit in it
-        found = False
+        for root, dirs, files in os.walk(cls.working_directory, topdown=False):
+            for name in dirs:
+                if name == ".wit":
+                    cls.base_path = os.path.join(root, name)
+                    return cls.base_path
+
         # TODO: handle not wit repo
-        # raise Exception("Not a wit repository")
+        raise Exception("Not a wit repository")
 
     @classmethod
     def validate_path(cls, path):
