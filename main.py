@@ -15,7 +15,8 @@ class WitInterface:
 
 
 if __name__ == "__main__":
-    # TODO: handle edge cases
+    if len(sys.argv) == 1:
+        raise ValueError("No command was given")
     command = sys.argv[1]
     args = sys.argv[2:]
     WitInterface.handle_commands(command, args)

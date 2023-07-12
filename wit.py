@@ -24,8 +24,8 @@ class Wit:
 
     @staticmethod
     def move_to_staging(full_path):
-        target_path = os.path.join(FileHandler.base_path, ".wit\\staging_area")
-        dirs = full_path[len(str(FileHandler.base_path))::]
+        target_path = os.path.join(FileHandler.base_path, "staging_area")
+        dirs = full_path[len(FileHandler.base_path)-4::]
         dirs = dirs.split("\\")
         for item in dirs[:-1]:
             target_path = os.path.join(target_path, item)

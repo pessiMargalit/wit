@@ -28,7 +28,7 @@ class FileHandler:
         # raise Exception("Not a wit repository")
 
     @classmethod
-    def validate_path(cls, path):
+    def get_full_path(cls, path):
         full_path = os.path.join(cls.working_directory, path)
         if not os.path.exists(full_path):
             raise FileExistsError("File doesn't exist")
@@ -39,12 +39,13 @@ class FileHandler:
         if os.path.isfile(origin):
             shutil.copy(origin, target)
         elif os.path.isdir(origin):
+            # Get the full path with the directory name
             shutil.copytree(origin, os.path.join(target, origin.split("\\")[-1]))
 
     @staticmethod
-    def write_to_file(file_path, message):
+    def write_to_file(file_path, message, parent=None):
         with open(file_path, "w") as commit_id_file:
-            commit_id_file.write("parent= None\n")
+            commit_id_file.write("parent= {}\n".format(parent))
             commit_id_file.write("date= {}\n".format(datetime.datetime.now().strftime("%a %b %d %H:%M:%S %Y %z")))
             commit_id_file.write("message= {}\n".format(message))
 
