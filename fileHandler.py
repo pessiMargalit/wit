@@ -3,6 +3,7 @@ import os
 import shutil
 import datetime
 
+
 class FileHandler:
     base_path = None
     working_directory = os.getcwd()
@@ -47,3 +48,5 @@ class FileHandler:
             commit_id_file.write("parent=None\n")
             commit_id_file.write("date={}\n".format(datetime.datetime.now().strftime("%a %b %d %H:%M:%S %Y %z")))
             commit_id_file.write("message={}\n".format(message))
+
+

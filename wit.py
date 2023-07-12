@@ -1,6 +1,7 @@
 import os
 import fileHandler
 import secrets
+import commit
 
 
 class Wit:
@@ -57,3 +58,7 @@ class Wit:
         staging_area_path = os.path.join(fileHandler.FileHandler.base_path, "staging_area")
         fileHandler.FileHandler.copy_item(staging_area_path, commit_id_dir)
         Wit.future_access(commit_id)
+
+    # @staticmethod
+    # def commit(args):
+    #     commit.Commit.commit(args)
