@@ -39,6 +39,7 @@ class FileHandler:
         if os.path.isfile(origin):
             shutil.copy(origin, target)
         elif os.path.isdir(origin):
+            # if not os.path.exists(target):
             # Get the full path with the directory name
             shutil.copytree(origin, os.path.join(target, origin.split("\\")[-1]))
 
@@ -48,5 +49,3 @@ class FileHandler:
             commit_id_file.write("parent= {}\n".format(parent))
             commit_id_file.write("date= {}\n".format(datetime.datetime.now().strftime("%a %b %d %H:%M:%S %Y %z")))
             commit_id_file.write("message= {}\n".format(message))
-
-

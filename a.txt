@@ -1,0 +1,1 @@
+Checking the copy_items function in fileHandler
