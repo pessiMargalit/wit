@@ -20,8 +20,13 @@ class Commit:
             commit_id_file.write("master={}\n".format(cls.commit_id))
 
     @classmethod
+    def commit_again(cls):
+        pass
+
+    @classmethod
     def commit(cls, args):
         wit.Wit.add(args)
+        Commit.generate_random_hash()
         commit_id_dir = os.path.join(r'.wit\images', cls.commit_id)
         fileHandler.FileHandler.create_dir(commit_id_dir)
         # path of the commit_id file
