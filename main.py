@@ -1,5 +1,5 @@
 import sys
-import wit
+from wit import Wit
 
 
 class WitInterface:
@@ -7,11 +7,11 @@ class WitInterface:
     def handle_commands(command, args):
         match command:
             case "init":
-                wit.Wit.init()
+                Wit.init()
             case "add":
-                wit.Wit.add(args)
+                Wit.add(args)
             case "commit":
-                wit.Wit.commit(args)
+                Wit.commit(args)
 
 
 if __name__ == "__main__":

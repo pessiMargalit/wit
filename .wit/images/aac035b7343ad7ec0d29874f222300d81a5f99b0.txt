@@ -1,3 +1,0 @@
-parent=None
-date=Wed Jul 12 11:09:57 2023 
-message=a.txt file added

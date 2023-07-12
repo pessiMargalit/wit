@@ -1,4 +1,3 @@
-import sys
 import os
 import shutil
 import datetime
@@ -43,10 +42,10 @@ class FileHandler:
             shutil.copytree(origin, os.path.join(target, origin.split("\\")[-1]))
 
     @staticmethod
-    def write_commit_metadata_to_file(file_path, message):
+    def write_to_file(file_path, message):
         with open(file_path, "w") as commit_id_file:
-            commit_id_file.write("parent=None\n")
-            commit_id_file.write("date={}\n".format(datetime.datetime.now().strftime("%a %b %d %H:%M:%S %Y %z")))
-            commit_id_file.write("message={}\n".format(message))
+            commit_id_file.write("parent= None\n")
+            commit_id_file.write("date= {}\n".format(datetime.datetime.now().strftime("%a %b %d %H:%M:%S %Y %z")))
+            commit_id_file.write("message= {}\n".format(message))
 
 
