@@ -18,7 +18,7 @@ wit is a lightweight Git implementation written in Python. It aims to provide th
 1. Clone the wit repository from GitHub:
    
 
-   git clone https://github.com/ShaniShurkin/wit.git
+   git clone https://github.com/pessiMargalit/wit-project-implement-git.git
    
 
 2. Navigate to the wit directory:
